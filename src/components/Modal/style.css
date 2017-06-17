@@ -1,0 +1,30 @@
+.overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.3);
+	z-index: 999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.modal {
+	background: #fff;
+	min-width: 450px;
+	border-radius: 4px;
+}
+
+.header {
+	border-bottom: 1px solid #ddd;
+}
+
+.content, .header, .footer {
+	padding: 10px 20px;
+}
+
+.footer {
+	border-top: 1px solid #ddd;
+}

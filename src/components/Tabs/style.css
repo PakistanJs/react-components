@@ -1,0 +1,28 @@
+.container {
+
+}
+
+.tabs {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.tab {
+	padding: 10px 5px;
+	border-bottom: 3px solid #ddd;
+	margin-right: 2px;
+	min-width: 100px;
+	cursor: pointer;
+	user-select: none;
+	color: #999;
+}
+
+.tabActive {
+	color: #666;
+	border-bottom: 3px solid rgba(126, 166, 255, 0.9);
+}
+
+.tabPanel {
+	padding: 10px 5px;
+}

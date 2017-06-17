@@ -1,0 +1,18 @@
+.input {
+	min-height: 45px;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	display: block;
+	min-width: 240px;
+	font-size: 13px;
+	margin-bottom: 10px;
+	box-sizing: border-box;
+	font-family: inherit;
+}
+
+.input:focus {
+	outline: none;
+	border: 1px solid rgba(126, 166, 255, 0.9);
+	box-shadow: 0 0 0 2px rgba(126, 166, 255, .4);
+}

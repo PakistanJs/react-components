@@ -59,7 +59,7 @@ module.exports = {
 	template: './src/styleguide/index.html',
 	getComponentPathLine(componentPath) {
 		const name = path.basename(componentPath, '.js');
-		return `import { ${name} } from 'pkjs-react-components';`;
+		return `import { ${name} } from 'components/pkjs-react-components';`;
 	},
 	webpackConfig: Object.assign({},
 		require('./webpack.config.js'),
