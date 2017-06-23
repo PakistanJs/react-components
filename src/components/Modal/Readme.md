@@ -16,7 +16,9 @@ class ModalExample extends Component {
 					show={this.state.show}
 					onClose={() => this.setState({ show: false })}
 				>
-					<Modal.Header>
+					<Modal.Header
+						onClose={() => this.setState({ show: false })}
+					>
 						<Heading size="medium">Hello</Heading>
 					</Modal.Header>
 					<Modal.Content>

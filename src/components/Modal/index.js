@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import cx from 'classnames'
 import styles from './style.css'
 
 class Modal extends Component {
@@ -19,7 +20,8 @@ class Modal extends Component {
 					onClick={this.hide}
 				>
 					<div
-						className={styles.modal}
+						className={cx(styles.modal, this.props.className)}
+						style={this.props.style}
 						onClick={this.preventClick}
 					>
 						{this.props.children}
@@ -32,9 +34,10 @@ class Modal extends Component {
 	}
 }
 
-Modal.Header = ({ children }) => (
+Modal.Header = ({ children, onClose }) => (
 	<div className={styles.header}>
 		{children}
+		{onClose ? <div className={styles.close} onClick={onClose} /> : null}
 	</div>
 )
 

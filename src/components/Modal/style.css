@@ -12,17 +12,62 @@
 }
 
 .modal {
+	position: relative;
 	background: #fff;
 	min-width: 450px;
 	border-radius: 4px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .header {
 	border-bottom: 1px solid #ddd;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.close {
+	cursor: pointer;
+	position: relative;
+	border: 1px solid #ddd;
+	background: #eee;
+	border-radius: 25px;
+	width: 40px;
+	height: 40px;
+}
+
+.close:hover {
+	border: 1px solid #bbb;
+}
+
+.close:hover::before,
+.close:hover::after {
+	border-top: 2px solid #bbb;
+}
+
+.close:before,
+.close:after {
+	position: absolute;
+	content: "";
+	width: 20px;
+	border-top: 2px solid #ccc;
+	transform: rotate(45deg);
+	left: 10px;
+	top: 19px;
+}
+
+.close:after {
+	transform: rotate(-45deg);
 }
 
 .content, .header, .footer {
 	padding: 10px 20px;
+}
+
+.content {
+	flex: 1 1 0;
 }
 
 .footer {

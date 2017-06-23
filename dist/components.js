@@ -869,12 +869,12 @@ function updateLink (link, options, obj) {
 
 
 
-var _assign = __webpack_require__(8);
+var _assign = __webpack_require__(9);
 
-var ReactCurrentOwner = __webpack_require__(9);
+var ReactCurrentOwner = __webpack_require__(10);
 
 var warning = __webpack_require__(3);
-var canDefineProperty = __webpack_require__(10);
+var canDefineProperty = __webpack_require__(11);
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 
 var REACT_ELEMENT_TYPE = __webpack_require__(18);
@@ -1247,6 +1247,61 @@ module.exports = reactProdInvariant;
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+  Copyright (c) 2016 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+	'use strict';
+
+	var hasOwn = {}.hasOwnProperty;
+
+	function classNames () {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg)) {
+				classes.push(classNames.apply(null, arg));
+			} else if (argType === 'object') {
+				for (var key in arg) {
+					if (hasOwn.call(arg, key) && arg[key]) {
+						classes.push(key);
+					}
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if (typeof module !== 'undefined' && module.exports) {
+		module.exports = classNames;
+	} else if (true) {
+		// register as 'classnames', consistent with npm package name
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+			return classNames;
+		}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+		window.classNames = classNames;
+	}
+}());
+
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 /*
 object-assign
@@ -1341,7 +1396,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1375,7 +1430,7 @@ var ReactCurrentOwner = {
 module.exports = ReactCurrentOwner;
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1405,61 +1460,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = canDefineProperty;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-  Copyright (c) 2016 Jed Watson.
-  Licensed under the MIT License (MIT), see
-  http://jedwatson.github.io/classnames
-*/
-/* global define */
-
-(function () {
-	'use strict';
-
-	var hasOwn = {}.hasOwnProperty;
-
-	function classNames () {
-		var classes = [];
-
-		for (var i = 0; i < arguments.length; i++) {
-			var arg = arguments[i];
-			if (!arg) continue;
-
-			var argType = typeof arg;
-
-			if (argType === 'string' || argType === 'number') {
-				classes.push(arg);
-			} else if (Array.isArray(arg)) {
-				classes.push(classNames.apply(null, arg));
-			} else if (argType === 'object') {
-				for (var key in arg) {
-					if (hasOwn.call(arg, key) && arg[key]) {
-						classes.push(key);
-					}
-				}
-			}
-		}
-
-		return classes.join(' ');
-	}
-
-	if (typeof module !== 'undefined' && module.exports) {
-		module.exports = classNames;
-	} else if (true) {
-		// register as 'classnames', consistent with npm package name
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
-			return classNames;
-		}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	} else {
-		window.classNames = classNames;
-	}
-}());
-
 
 /***/ }),
 /* 12 */
@@ -1525,7 +1525,7 @@ module.exports = emptyFunction;
 
 var _prodInvariant = __webpack_require__(7);
 
-var ReactCurrentOwner = __webpack_require__(9);
+var ReactCurrentOwner = __webpack_require__(10);
 
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
@@ -2026,11 +2026,11 @@ module.exports = ReactPropTypesSecret;
 
 
 var _prodInvariant = __webpack_require__(7),
-    _assign = __webpack_require__(8);
+    _assign = __webpack_require__(9);
 
 var ReactNoopUpdateQueue = __webpack_require__(20);
 
-var canDefineProperty = __webpack_require__(10);
+var canDefineProperty = __webpack_require__(11);
 var emptyObject = __webpack_require__(15);
 var invariant = __webpack_require__(2);
 var lowPriorityWarning = __webpack_require__(14);
@@ -2206,13 +2206,13 @@ module.exports = REACT_ELEMENT_TYPE;
 
 
 
-var ReactCurrentOwner = __webpack_require__(9);
+var ReactCurrentOwner = __webpack_require__(10);
 var ReactComponentTreeHook = __webpack_require__(13);
 var ReactElement = __webpack_require__(6);
 
 var checkReactTypeSpec = __webpack_require__(54);
 
-var canDefineProperty = __webpack_require__(10);
+var canDefineProperty = __webpack_require__(11);
 var getIteratorFn = __webpack_require__(21);
 var warning = __webpack_require__(3);
 var lowPriorityWarning = __webpack_require__(14);
@@ -2607,7 +2607,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _classnames = __webpack_require__(11);
+var _classnames = __webpack_require__(8);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -2774,7 +2774,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _classnames = __webpack_require__(11);
+var _classnames = __webpack_require__(8);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -2994,6 +2994,10 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _classnames = __webpack_require__(8);
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
 var _style = __webpack_require__(62);
 
 var _style2 = _interopRequireDefault(_style);
@@ -3041,7 +3045,8 @@ var Modal = function (_Component) {
 					_react2.default.createElement(
 						'div',
 						{
-							className: _style2.default.modal,
+							className: (0, _classnames2.default)(_style2.default.modal, this.props.className),
+							style: this.props.style,
 							onClick: this.preventClick
 						},
 						this.props.children
@@ -3057,11 +3062,13 @@ var Modal = function (_Component) {
 }(_react.Component);
 
 Modal.Header = function (_ref2) {
-	var children = _ref2.children;
+	var children = _ref2.children,
+	    onClose = _ref2.onClose;
 	return _react2.default.createElement(
 		'div',
 		{ className: _style2.default.header },
-		children
+		children,
+		onClose ? _react2.default.createElement('div', { className: _style2.default.close, onClick: onClose }) : null
 	);
 };
 
@@ -3134,7 +3141,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _classnames = __webpack_require__(11);
+var _classnames = __webpack_require__(8);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -3372,7 +3379,7 @@ exports.TextInput = _TextInput2.default;
 
 
 
-var _assign = __webpack_require__(8);
+var _assign = __webpack_require__(9);
 
 var emptyObject = __webpack_require__(15);
 var _invariant = __webpack_require__(2);
@@ -4171,13 +4178,14 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, ".style_overlay_3gM1JQoHnsNxF-j79I32yo {\n\tposition: fixed;\n\ttop: 0;\n\tbottom: 0;\n\tleft: 0;\n\tright: 0;\n\tbackground: rgba(0, 0, 0, .3);\n\tz-index: 999;\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-align: center;\n\t    -ms-flex-align: center;\n\t        align-items: center;\n\t-webkit-box-pack: center;\n\t    -ms-flex-pack: center;\n\t        justify-content: center;\n}\n\n.style_modal_2AZ-GQtYyz0-xQ9RAe1TPh {\n\tbackground: #fff;\n\tmin-width: 450px;\n\tborder-radius: 4px;\n}\n\n.style_header_1txUIIe26YtV63_84IlK7w {\n\tborder-bottom: 1px solid #ddd;\n}\n\n.style_content_2An5_-7Kc9HSgZua2auBQ-, .style_header_1txUIIe26YtV63_84IlK7w, .style_footer_1Ds9VbNoZ0BAU_36Q31kcv {\n\tpadding: 10px 20px;\n}\n\n.style_footer_1Ds9VbNoZ0BAU_36Q31kcv {\n\tborder-top: 1px solid #ddd;\n}\n", ""]);
+exports.push([module.i, ".style_overlay_3gM1JQoHnsNxF-j79I32yo {\n\tposition: fixed;\n\ttop: 0;\n\tbottom: 0;\n\tleft: 0;\n\tright: 0;\n\tbackground: rgba(0, 0, 0, .3);\n\tz-index: 999;\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-align: center;\n\t    -ms-flex-align: center;\n\t        align-items: center;\n\t-webkit-box-pack: center;\n\t    -ms-flex-pack: center;\n\t        justify-content: center;\n}\n\n.style_modal_2AZ-GQtYyz0-xQ9RAe1TPh {\n\tposition: relative;\n\tbackground: #fff;\n\tmin-width: 450px;\n\tborder-radius: 4px;\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-orient: vertical;\n\t-webkit-box-direction: normal;\n\t    -ms-flex-direction: column;\n\t        flex-direction: column;\n\t-webkit-box-pack: justify;\n\t    -ms-flex-pack: justify;\n\t        justify-content: space-between;\n}\n\n.style_header_1txUIIe26YtV63_84IlK7w {\n\tborder-bottom: 1px solid #ddd;\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-align: center;\n\t    -ms-flex-align: center;\n\t        align-items: center;\n\t-webkit-box-pack: justify;\n\t    -ms-flex-pack: justify;\n\t        justify-content: space-between;\n}\n\n.style_close_1onD59gkwZo2_HslvqCkbc {\n\tcursor: pointer;\n\tposition: relative;\n\tborder: 1px solid #ddd;\n\tbackground: #eee;\n\tborder-radius: 25px;\n\twidth: 40px;\n\theight: 40px;\n}\n\n.style_close_1onD59gkwZo2_HslvqCkbc:hover {\n\tborder: 1px solid #bbb;\n}\n\n.style_close_1onD59gkwZo2_HslvqCkbc:hover::before,\n.style_close_1onD59gkwZo2_HslvqCkbc:hover::after {\n\tborder-top: 2px solid #bbb;\n}\n\n.style_close_1onD59gkwZo2_HslvqCkbc:before,\n.style_close_1onD59gkwZo2_HslvqCkbc:after {\n\tposition: absolute;\n\tcontent: \"\";\n\twidth: 20px;\n\tborder-top: 2px solid #ccc;\n\t-webkit-transform: rotate(45deg);\n\t        transform: rotate(45deg);\n\tleft: 10px;\n\ttop: 19px;\n}\n\n.style_close_1onD59gkwZo2_HslvqCkbc:after {\n\t-webkit-transform: rotate(-45deg);\n\t        transform: rotate(-45deg);\n}\n\n.style_content_2An5_-7Kc9HSgZua2auBQ-, .style_header_1txUIIe26YtV63_84IlK7w, .style_footer_1Ds9VbNoZ0BAU_36Q31kcv {\n\tpadding: 10px 20px;\n}\n\n.style_content_2An5_-7Kc9HSgZua2auBQ- {\n\t-webkit-box-flex: 1;\n\t    -ms-flex: 1 1 0px;\n\t        flex: 1 1 0;\n}\n\n.style_footer_1Ds9VbNoZ0BAU_36Q31kcv {\n\tborder-top: 1px solid #ddd;\n}\n", ""]);
 
 // exports
 exports.locals = {
 	"overlay": "style_overlay_3gM1JQoHnsNxF-j79I32yo",
 	"modal": "style_modal_2AZ-GQtYyz0-xQ9RAe1TPh",
 	"header": "style_header_1txUIIe26YtV63_84IlK7w",
+	"close": "style_close_1onD59gkwZo2_HslvqCkbc",
 	"content": "style_content_2An5_-7Kc9HSgZua2auBQ-",
 	"footer": "style_footer_1Ds9VbNoZ0BAU_36Q31kcv"
 };
@@ -5050,7 +5058,7 @@ module.exports = PooledClass;
 
 
 
-var _assign = __webpack_require__(8);
+var _assign = __webpack_require__(9);
 
 var ReactBaseClasses = __webpack_require__(17);
 var ReactChildren = __webpack_require__(48);
@@ -5068,7 +5076,7 @@ var cloneElement = ReactElement.cloneElement;
 
 if (process.env.NODE_ENV !== 'production') {
   var lowPriorityWarning = __webpack_require__(14);
-  var canDefineProperty = __webpack_require__(10);
+  var canDefineProperty = __webpack_require__(11);
   var ReactElementValidator = __webpack_require__(19);
   var didWarnPropTypesDeprecated = false;
   createElement = ReactElementValidator.createElement;
@@ -5822,7 +5830,7 @@ module.exports = onlyChild;
 
 var _prodInvariant = __webpack_require__(7);
 
-var ReactCurrentOwner = __webpack_require__(9);
+var ReactCurrentOwner = __webpack_require__(10);
 var REACT_ELEMENT_TYPE = __webpack_require__(18);
 
 var getIteratorFn = __webpack_require__(21);
