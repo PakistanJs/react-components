@@ -1,6 +1,6 @@
 {
 	"name": "pkjs-react-components",
-	"version": "0.0.1",
+	"version": "0.0.4",
 	"description": "React UI component library",
 	"main": "dist/components.js",
 	"repository": "git@github.com:PakistanJs/react-components.git",

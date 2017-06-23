@@ -7,7 +7,8 @@ module.exports = {
 	entry: './src/index.js',
 	output: {
 		path: path.resolve('dist'),
-		filename: 'components.js'
+		filename: 'components.js',
+		libraryTarget: 'umd'
 	},
   module: {
 		loaders: [
@@ -28,9 +29,5 @@ module.exports = {
 			path.resolve(__dirname, 'src')
 		],
 		extensions: ['.js', '.json', '.css'],
-	},
-	devServer: {
-		historyApiFallback: true
-	},
-	devtool: 'eval-source-map'
+	}
 }
