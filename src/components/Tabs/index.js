@@ -3,30 +3,32 @@ import cx from 'classnames'
 import styles from './style.css'
 
 class Tabs extends Component {
-	constructor(props) {
-		super(props)
+	getActiveTabId = () => {
+		let activeTab = this.props.activeTab;
 
-		const firstChild = Children.only(this.props.children[0])
-
-		this.state = {
-			activeTab: firstChild.props.id
+		if (!activeTab && this.props.children) {
+			const firstChild = Children.only(this.props.children[0]);
+			activeTab = firstChild.props.id;
 		}
+
+		return activeTab;
 	}
 
 	handleTabClick = (e) => {
-		const id = e.target.getAttribute('data-pkjs-id')
-
-		this.setState({ activeTab: id })
+		const activeTab = e.target.getAttribute('data-pkjs-id')
+		this.props.onTabChange(activeTab)
 	}
 
 	renderTabs() {
+		const activeTab = this.getActiveTabId();
+
 		const tabs = Children.map(this.props.children, (child) => {
 			const { label, id } = child.props
 
 			return (
 				<div
 					className={cx(styles.tab, {
-						[styles.tabActive]: this.state.activeTab === id
+						[styles.tabActive]: activeTab === id
 					})}
 					data-pkjs-id={id}
 					onClick={this.handleTabClick}
@@ -45,9 +47,10 @@ class Tabs extends Component {
 
 	renderActivePanel() {
 		let activePanel = null
+		const activeTab = this.getActiveTabId();
 
 		Children.forEach(this.props.children, (child) => {
-			if (child.props.id === this.state.activeTab) {
+			if (child.props.id === activeTab) {
 				activePanel = child
 			}
 		})

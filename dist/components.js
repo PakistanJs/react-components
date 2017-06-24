@@ -3162,29 +3162,38 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Tabs = function (_Component) {
 	_inherits(Tabs, _Component);
 
-	function Tabs(props) {
+	function Tabs() {
+		var _ref;
+
+		var _temp, _this, _ret;
+
 		_classCallCheck(this, Tabs);
 
-		var _this = _possibleConstructorReturn(this, (Tabs.__proto__ || Object.getPrototypeOf(Tabs)).call(this, props));
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
+		}
 
-		_this.handleTabClick = function (e) {
-			var id = e.target.getAttribute('data-pkjs-id');
+		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Tabs.__proto__ || Object.getPrototypeOf(Tabs)).call.apply(_ref, [this].concat(args))), _this), _this.getActiveTabId = function () {
+			var activeTab = _this.props.activeTab;
 
-			_this.setState({ activeTab: id });
-		};
+			if (!activeTab && _this.props.children) {
+				var firstChild = _react.Children.only(_this.props.children[0]);
+				activeTab = firstChild.props.id;
+			}
 
-		var firstChild = _react.Children.only(_this.props.children[0]);
-
-		_this.state = {
-			activeTab: firstChild.props.id
-		};
-		return _this;
+			return activeTab;
+		}, _this.handleTabClick = function (e) {
+			var activeTab = e.target.getAttribute('data-pkjs-id');
+			_this.props.onTabChange(activeTab);
+		}, _temp), _possibleConstructorReturn(_this, _ret);
 	}
 
 	_createClass(Tabs, [{
 		key: 'renderTabs',
 		value: function renderTabs() {
 			var _this2 = this;
+
+			var activeTab = this.getActiveTabId();
 
 			var tabs = _react.Children.map(this.props.children, function (child) {
 				var _child$props = child.props,
@@ -3195,7 +3204,7 @@ var Tabs = function (_Component) {
 				return _react2.default.createElement(
 					'div',
 					{
-						className: (0, _classnames2.default)(_style2.default.tab, _defineProperty({}, _style2.default.tabActive, _this2.state.activeTab === id)),
+						className: (0, _classnames2.default)(_style2.default.tab, _defineProperty({}, _style2.default.tabActive, activeTab === id)),
 						'data-pkjs-id': id,
 						onClick: _this2.handleTabClick
 					},
@@ -3212,12 +3221,11 @@ var Tabs = function (_Component) {
 	}, {
 		key: 'renderActivePanel',
 		value: function renderActivePanel() {
-			var _this3 = this;
-
 			var activePanel = null;
+			var activeTab = this.getActiveTabId();
 
 			_react.Children.forEach(this.props.children, function (child) {
-				if (child.props.id === _this3.state.activeTab) {
+				if (child.props.id === activeTab) {
 					activePanel = child;
 				}
 			});
@@ -3239,8 +3247,8 @@ var Tabs = function (_Component) {
 	return Tabs;
 }(_react.Component);
 
-Tabs.Panel = function (_ref) {
-	var children = _ref.children;
+Tabs.Panel = function (_ref2) {
+	var children = _ref2.children;
 	return _react2.default.createElement(
 		'div',
 		{ className: _style2.default.tabPanel },
