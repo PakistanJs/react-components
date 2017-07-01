@@ -32,30 +32,24 @@
 	cursor: pointer;
 	position: relative;
 	border: 1px solid #ddd;
-	background: #eee;
 	border-radius: 25px;
-	width: 40px;
-	height: 40px;
+	width: 35px;
+	height: 35px;
 }
 
 .close:hover {
-	border: 1px solid #bbb;
-}
-
-.close:hover::before,
-.close:hover::after {
-	border-top: 2px solid #bbb;
+	border: 1px solid #ccc;
 }
 
 .close:before,
 .close:after {
 	position: absolute;
 	content: "";
-	width: 20px;
-	border-top: 2px solid #ccc;
+	width: 15px;
+	border-top: 1px solid #ccc;
 	transform: rotate(45deg);
 	left: 10px;
-	top: 19px;
+	top: 17px;
 }
 
 .close:after {

@@ -10,8 +10,7 @@
 
 .tab {
 	padding: 10px 5px;
-	border-bottom: 3px solid #ddd;
-	margin-right: 2px;
+	border-bottom: 1px solid #ddd;
 	min-width: 100px;
 	cursor: pointer;
 	user-select: none;
@@ -20,7 +19,7 @@
 
 .tabActive {
 	color: #666;
-	border-bottom: 3px solid rgba(126, 166, 255, 0.9);
+	border-bottom: 1px solid rgba(126, 166, 255, 1);
 }
 
 .tabPanel {

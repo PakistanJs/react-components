@@ -1,6 +1,8 @@
 
 ```
-<div>
-	<Image src="http://pakistanjs.com/logo.jpg" />
-</div>
+<Grid>
+	<Button>Button 1</Button>
+	<Button>Button 2</Button>
+	<Button>Button 3</Button>
+</Grid>
 ```
